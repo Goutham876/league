@@ -1,6 +1,6 @@
 # knockout tournament
 
-Technology used vinilla javascript, html ans css.
+Technology used vinilla javascript, html and css.
 
 
 Simple leage tournament :
