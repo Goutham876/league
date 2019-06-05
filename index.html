@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=7">
+        <title>Tournament</title>
+        <link rel="stylesheet" href="main.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <button class="collapsible">Group Level Matches</button>
+        <div class="content" id="GroupLevelGrid">
+            <div class="row">
+                <div class="grid-container">
+                    <div class="grid-item">
+                            <ul class="list-group">
+                                <h3 id="groupA"></h3>
+                                <button class="btn btn-outline-primary" id="shuffleGroupA">
+                                    suffle group
+                                </button>
+                                <li class="list-group-item" id="sideAGroupA"></li>
+                                <span><br></span>
+                                <button type="button" class="btn btn-outline-dark" id="playGroupA">play</button>
+                            </ul>
+                    </div>
+                    <div class="grid-item">
+                        <ul class="list-group">
+                            <h3>LEVEL 1</h3>
+                            <li class="list-group-item">
+                                <h6 id="groupALevelOneWinner"></h6>
+                                <h6 id="groupALevelOneRunner"></h6>
+                                <h6 id="groupALevelOneThird"></h6>
+                                <h6 id="groupALevelOneFourth"></h6>
+                                <h6 id="groupALevelOneFifth"></h6>
+                            </li>
+                            <button id="playgroupALevelTwo" type="button" class="btn btn-outline-light">play</button>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3>WINNER</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-success" id="groupALevelTwoWinner"></li>
+                        </ul>
+                    </div>  
+                    <div class="grid-item">
+                            <ul class="list-group">
+                                    <h3 id="groupB"></h3>
+                                <button class="btn btn-outline-primary" id="shuffleGroupB">
+                                        suffle group
+                                </button>
+                                
+                                <li class="list-group-item" id="sideAGroupB"></li>
+                                <span><br></span>
+                                <button type="button" class="btn btn-outline-dark" id="playGroupB">play</button>
+                            </ul>
+                    </div>
+                    <div class="grid-item">
+                            <ul class="list-group">
+                                <h3>LEVEL 1</h3>
+                                    <li class="list-group-item">
+                                        <h6 id="groupBLevelOneWinner"></h6>
+                                        <h6 id="groupBLevelOneRunner"></h6>
+                                        <h6 id="groupBLevelOneThird"></h6>
+                                        <h6 id="groupBLevelOneFourth"></h6>
+                                        <h6 id="groupBLevelOneFifth"></h6>
+                                    </li>
+                                    <button id="playgroupBLevelTwo" type="button" class="btn btn-outline-light">play</button>
+                                </ul>
+                    </div>
+                    <div class="grid-item">
+                            <h3>WINNER</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-success" id="groupBLevelTwoWinner"></li>
+                            </ul>
+                    </div>  
+                    <div class="grid-item">
+                            <ul class="list-group">
+                                    <h3 id="groupC"></h3>
+                                    <button class="btn btn-outline-primary" id="shuffleGroupC">
+                                        suffle group
+                                    </button>
+                                
+                                <li class="list-group-item" id="sideAGroupC"></li>
+                                <span><br></span>
+                                <button type="button" class="btn btn-outline-dark" id="playGroupC">play</button>
+                            </ul>
+                    </div>
+                    <div class="grid-item">
+                            <ul class="list-group">
+                                <h3>LEVEL 1</h3>
+                                <li class="list-group-item"> 
+                                        <h6 id="groupCLevelOneWinner"></h6>
+                                        <h6 id="groupCLevelOneRunner"></h6>
+                                        <h6 id="groupCLevelOneThird"></h6>
+                                        <h6 id="groupCLevelOneFourth"></h6>
+                                        <h6 id="groupCLevelOneFifth"></h6>
+                                </li>
+                                <button id="playgroupCLevelTwo" type="button" class="btn btn-outline-light">play</button>
+                            </ul>
+                    </div>
+                    <div class="grid-item">
+                            <h3>WINNER</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-success" id="groupCLevelTwoWinner"></li>
+                            </ul>
+                    </div>  
+                </div>
+                <div class="grid-container">
+                    <div class="grid-item">
+                            <h3>WINNER</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-success" id="groupDLevelTwoWinner"></li>
+                            </ul>
+                    </div>
+                    <div class="grid-item">
+                            <ul class="list-group">
+                                    <h3>LEVEL 1</h3>
+                                    <li class="list-group-item"> 
+                                            <h6 id="groupDLevelOneWinner"></h6>
+                                            <h6 id="groupDLevelOneRunner"></h6>
+                                            <h6 id="groupDLevelOneThird"></h6>
+                                            <h6 id="groupDLevelOneFourth"></h6>
+                                            <h6 id="groupDLevelOneFifth"></h6>
+                                    </li>
+                                    <button id="playgroupDLevelTwo" type="button" class="btn btn-outline-light">play</button>
+                                </ul>
+                    </div>
+                    <div class="grid-item">
+                            <ul class="list-group">
+                                    <h3 id="groupD"></h3> 
+                                    <button class="btn btn-outline-primary" id="shuffleGroupD">
+                                        suffle group
+                                    </button>
+                                   
+                                <li class="list-group-item" id="sideBGroupA"></li>
+                                <span><br></span>
+                                <button type="button" class="btn btn-outline-dark" id="playGroupD">play</button>
+                            </ul>
+                    </div>  
+                    <div class="grid-item">
+                            <h3>WINNER</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-success" id="groupELevelTwoWinner"></li>
+                            </ul>
+                    </div>
+                    <div class="grid-item">
+                            <ul class="list-group">
+                                    <h3>LEVEL 1</h3>
+                                    <li class="list-group-item"> 
+                                            <h6 id="groupELevelOneWinner"></h6>
+                                            <h6 id="groupELevelOneRunner"></h6>
+                                            <h6 id="groupELevelOneThird"></h6>
+                                            <h6 id="groupELevelOneFourth"></h6>
+                                            <h6 id="groupELevelOneFifth"></h6>
+                                    </li>
+                                    <button id="playgroupELevelTwo" type="button" class="btn btn-outline-light">play</button>
+                                </ul>
+                    </div>
+                    <div class="grid-item">
+                            <ul class="list-group">
+                                    <h3 id="groupE"></h3>
+                                    <button class="btn btn-outline-primary" id="shuffleGroupE">
+                                        suffle group
+                                    </button>
+                                
+                                <li class="list-group-item" id="sideBGroupB"></li>
+                                <span><br></span>
+                                <button type="button" class="btn btn-outline-dark" id="playGroupE">play</button>
+                            </ul>
+                    </div>  
+                    <div class="grid-item">
+                            <h3>WINNER</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-success" id="groupFLevelTwoWinner"></li>
+                            </ul>
+                    </div>
+                    <div class="grid-item">
+                            <ul class="list-group">
+                                    <h3>LEVEL 1</h3>
+                                    <li class="list-group-item"> 
+                                            <h6 id="groupFLevelOneWinner"></h6>
+                                            <h6 id="groupFLevelOneRunner"></h6>
+                                            <h6 id="groupFLevelOneThird"></h6>
+                                            <h6 id="groupFLevelOneFourth"></h6>
+                                            <h6 id="groupFLevelOneFifth"></h6>
+                                    </li>
+                                    <button id="playgroupFLevelTwo" type="button" class="btn btn-outline-light">play</button>
+                                </ul>
+                    </div>
+                    <div class="grid-item">
+                            <ul class="list-group">
+                                    <h3 id="groupF"></h3>
+                                    <button class="btn btn-outline-primary" id="shuffleGroupF">
+                                        suffle group
+                                    </button>
+                                
+                                <li class="list-group-item" id="sideBGroupC"></li>
+                                <span><br></span>
+                                <button type="button" class="btn btn-outline-dark" id="playGroupF">play</button>
+                            </ul>
+                    </div>  
+                </div>
+            </div>
+            <div class="column">
+                    <button id="myButton" type="button" class="btn btn-primary">suffle teams</button>
+                    <button id="clearButton" type="button" class="btn btn-primary">clear</button>
+                </div>
+        </div>
+        <button class="collapsible">Semifinal and Final match</button>
+        <div class="content">
+            <p>I am not going to implement this section because it is just the repeatation af the same as above... </p>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
