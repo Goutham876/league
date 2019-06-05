@@ -1,5 +1,3 @@
-
-
 let groupObject = {};
 let sideA = [];
 let sideB = [];
@@ -7,6 +5,7 @@ let finalGroupList = [];
 let shuffledGroups = [];
 let groups = [];
 let shuffledTeams = [];
+let teams = [];
 
 let sideAGroupA = [];
 let sideAGroupB = [];
@@ -22,6 +21,57 @@ let resultSideAGroupCLevelOne = [];
 let resultSideBGroupALevelOne = [];
 let resultSideBGroupBLevelOne = [];
 let resultSideBGroupCLevelOne = [];
+const allOutLinedBtnDark = document.querySelectorAll(".btn-outline-dark");
+const playBtnItems = [].slice.call(allOutLinedBtnDark);
+
+const winnerGroupA = "";
+const winnerGroupB = "";
+const winnerGroupC = "";
+
+const winnerGroupD = "";
+const winnerGroupE = "";
+const winnerGroupF = "";
+
+const allOutLinedBtnLight = document.querySelectorAll(".btn-outline-light");
+const playLightBtnItems = [].slice.call(allOutLinedBtnLight);
+let teamAfterLevelOneGroupA = [];
+let teamAfterLevelOneGroupB = [];
+let teamAfterLevelOneGroupC = [];
+let teamAfterLevelOneGroupD = [];
+let teamAfterLevelOneGroupE = [];
+let teamAfterLevelOneGroupF = [];
+
+
+let groupAwinner = "";
+let groupBwinner = "";
+let groupCwinner = "";
+let groupDwinner = "";
+let groupEwinner = "";
+let groupFwinner = "";
+let groupARunnersUp= "";
+let groupBRunnersUp= "";
+let groupCRunnersUp= "";
+let groupDRunnersUp= "";
+let groupERunnersUp= "";
+let groupFRunnersUp= "";
+
+let groupALevelTwoWinner = [];
+let groupBLevelTwoWinner = [];
+let groupCLevelTwoWinner = [];
+let groupDLevelTwoWinner = [];
+let groupELevelTwoWinner = [];
+let groupFLevelTwoWinner = [];
+
+let resultsSideAGroupALevelTwo = [];
+let resultsSideAGroupBLevelTwo = [];
+let resultsSideAGroupCLevelTwo = [];
+let resultsSideBGroupALevelTwo = [];
+let resultsSideBGroupBLevelTwo = [];
+let resultsSideBGroupCLevelTwo = [];
+
+
+const url = "https://raw.githubusercontent.com/bttmly/nba/master/data/teams.json";
+
 
 
 var coll = document.getElementsByClassName("collapsible");
@@ -29,7 +79,8 @@ var i;
 
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
-    loadTeams();
+    getTeams(url, assignTeamCallback);
+    // loadTeams();
     this.classList.toggle("active");
     var content = this.nextElementSibling;
     if (content.style.display === "block") {
@@ -40,6 +91,21 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
+
+function getTeams(url, callback) {
+  var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", url, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
+
+function assignTeamCallback(response) {
+  teams = JSON.parse(response);
+  loadTeams();
+}
 
 
 
@@ -57,220 +123,12 @@ function shuffle(array) {
     return array;
 }
 
-function onLoad() {
-    const teams = [
-        {
-          "teamId": 1610612737,
-          "abbreviation": "ATL",
-          "teamName": "Atlanta Hawks",
-          "simpleName": "Hawks",
-          "location": "Atlanta"
-        },
-        {
-          "teamId": 1610612738,
-          "abbreviation": "BOS",
-          "teamName": "Boston Celtics",
-          "simpleName": "Celtics",
-          "location": "Boston"
-        },
-        {
-          "teamId": 1610612751,
-          "abbreviation": "BKN",
-          "teamName": "Brooklyn Nets",
-          "simpleName": "Nets",
-          "location": "Brooklyn"
-        },
-        {
-          "teamId": 1610612766,
-          "abbreviation": "CHA",
-          "teamName": "Charlotte Hornets",
-          "simpleName": "Hornets",
-          "location": "Charlotte"
-        },
-        {
-          "teamId": 1610612741,
-          "abbreviation": "CHI",
-          "teamName": "Chicago Bulls",
-          "simpleName": "Bulls",
-          "location": "Chicago"
-        },
-        {
-          "teamId": 1610612739,
-          "abbreviation": "CLE",
-          "teamName": "Cleveland Cavaliers",
-          "simpleName": "Cavaliers",
-          "location": "Cleveland"
-        },
-        {
-          "teamId": 1610612742,
-          "abbreviation": "DAL",
-          "teamName": "Dallas Mavericks",
-          "simpleName": "Mavericks",
-          "location": "Dallas"
-        },
-        {
-          "teamId": 1610612743,
-          "abbreviation": "DEN",
-          "teamName": "Denver Nuggets",
-          "simpleName": "Nuggets",
-          "location": "Denver"
-        },
-        {
-          "teamId": 1610612765,
-          "abbreviation": "DET",
-          "teamName": "Detroit Pistons",
-          "simpleName": "Pistons",
-          "location": "Detroit"
-        },
-        {
-          "teamId": 1610612744,
-          "abbreviation": "GSW",
-          "teamName": "Golden State Warriors",
-          "simpleName": "Warriors",
-          "location": "Golden State"
-        },
-        {
-          "teamId": 1610612745,
-          "abbreviation": "HOU",
-          "teamName": "Houston Rockets",
-          "simpleName": "Rockets",
-          "location": "Houston"
-        },
-        {
-          "teamId": 1610612754,
-          "abbreviation": "IND",
-          "teamName": "Indiana Pacers",
-          "simpleName": "Pacers",
-          "location": "Indiana"
-        },
-        {
-          "teamId": 1610612746,
-          "abbreviation": "LAC",
-          "teamName": "Los Angeles Clippers",
-          "simpleName": "Clippers",
-          "location": "Los Angeles"
-        },
-        {
-          "teamId": 1610612747,
-          "abbreviation": "LAL",
-          "teamName": "Los Angeles Lakers",
-          "simpleName": "Lakers",
-          "location": "Los Angeles"
-        },
-        {
-          "teamId": 1610612763,
-          "abbreviation": "MEM",
-          "teamName": "Memphis Grizzlies",
-          "simpleName": "Grizzlies",
-          "location": "Memphis"
-        },
-        {
-          "teamId": 1610612748,
-          "abbreviation": "MIA",
-          "teamName": "Miami Heat",
-          "simpleName": "Heat",
-          "location": "Miami"
-        },
-        {
-          "teamId": 1610612749,
-          "abbreviation": "MIL",
-          "teamName": "Milwaukee Bucks",
-          "simpleName": "Bucks",
-          "location": "Milwaukee"
-        },
-        {
-          "teamId": 1610612750,
-          "abbreviation": "MIN",
-          "teamName": "Minnesota Timberwolves",
-          "simpleName": "Timberwolves",
-          "location": "Minnesota"
-        },
-        {
-          "teamId": 1610612740,
-          "abbreviation": "NOP",
-          "teamName": "New Orleans Pelicans",
-          "simpleName": "Pelicans",
-          "location": "New Orleans"
-        },
-        {
-          "teamId": 1610612752,
-          "abbreviation": "NYK",
-          "teamName": "New York Knicks",
-          "simpleName": "Knicks",
-          "location": "New York"
-        },
-        {
-          "teamId": 1610612760,
-          "abbreviation": "OKC",
-          "teamName": "Oklahoma City Thunder",
-          "simpleName": "Thunder",
-          "location": "Oklahoma City"
-        },
-        {
-          "teamId": 1610612753,
-          "abbreviation": "ORL",
-          "teamName": "Orlando Magic",
-          "simpleName": "Magic",
-          "location": "Orlando"
-        },
-        {
-          "teamId": 1610612755,
-          "abbreviation": "PHI",
-          "teamName": "Philadelphia 76ers",
-          "simpleName": "76ers",
-          "location": "Philadelphia"
-        },
-        {
-          "teamId": 1610612756,
-          "abbreviation": "PHX",
-          "teamName": "Phoenix Suns",
-          "simpleName": "Suns",
-          "location": "Phoenix"
-        },
-        {
-          "teamId": 1610612757,
-          "abbreviation": "POR",
-          "teamName": "Portland Trail Blazers",
-          "simpleName": "Trail Blazers",
-          "location": "Portland"
-        },
-        {
-          "teamId": 1610612758,
-          "abbreviation": "SAC",
-          "teamName": "Sacramento Kings",
-          "simpleName": "Kings",
-          "location": "Sacramento"
-        },
-        {
-          "teamId": 1610612759,
-          "abbreviation": "SAS",
-          "teamName": "San Antonio Spurs",
-          "simpleName": "Spurs",
-          "location": "San Antonio"
-        },
-        {
-          "teamId": 1610612761,
-          "abbreviation": "TOR",
-          "teamName": "Toronto Raptors",
-          "simpleName": "Raptors",
-          "location": "Toronto"
-        },
-        {
-          "teamId": 1610612762,
-          "abbreviation": "UTA",
-          "teamName": "Utah Jazz",
-          "simpleName": "Jazz",
-          "location": "Utah"
-        },
-        {
-          "teamId": 1610612764,
-          "abbreviation": "WAS",
-          "teamName": "Washington Wizards",
-          "simpleName": "Wizards",
-          "location": "Washington"
-        }
-      ];
-    shuffledTeams = shuffle(teams);
+document.getElementById("myButton").addEventListener('click', () => {
+    loadTeams();
+});
+
+function loadTeams() {
+  shuffledTeams = shuffle(teams);
     groups = randChunkSplit(shuffledTeams, 5, 5);
 
     shuffledGroups = shuffle(groups);
@@ -286,23 +144,13 @@ function onLoad() {
     sideBGroupA = finalGroupList["side 1"][0];
     sideBGroupB = finalGroupList["side 1"][1];
     sideBGroupC = finalGroupList["side 1"][2];
-}
-  
-
-
-document.getElementById("myButton").addEventListener('click', () => {
-    loadTeams();
-});
-
-function loadTeams() {
-  document.getElementById("sideAGroupA").innerText = null;
+    document.getElementById("sideAGroupA").innerText = null;
     document.getElementById("sideAGroupB").innerText = null;
     document.getElementById("sideAGroupC").innerText = null;
     document.getElementById("sideBGroupA").innerText = null;
     document.getElementById("sideBGroupB").innerText = null;
     document.getElementById("sideBGroupC").innerText = null;
 
-    onLoad();
     for (let i = 0 ; i < sideAGroupA.length; i++) {
         document.getElementById("sideAGroupA").innerHTML += sideAGroupA[i].teamName + '<br>';
         document.getElementById("groupA").innerText = sideAGroupA[i].groupName;
@@ -332,9 +180,6 @@ function loadTeams() {
         document.getElementById("groupF").innerText = sideBGroupC[n].groupName;
     }
 }
-
-
-// console.log(finalGroupList);
 
 function randChunkSplit(arr,min,max) {
     // uncomment this line if you don't want the original array to be affected
@@ -419,19 +264,6 @@ btnItems.forEach((btn) => {
         }
     });
 });
-
-const allOutLinedBtnDark = document.querySelectorAll(".btn-outline-dark");
-const playBtnItems = [].slice.call(allOutLinedBtnDark);
-
-const winnerGroupA = "";
-const winnerGroupB = "";
-const winnerGroupC = "";
-
-const winnerGroupD = "";
-const winnerGroupE = "";
-const winnerGroupF = "";
-
-
   
 function assignRandomWinnerLevelOne(group) {
   const mapObject = ["winner", "runnersUp", "thirdPlace", "fourthPlace","fifthPlace"];
@@ -635,44 +467,6 @@ playBtnItems.forEach((btn) => {
     });
 });
 
-const allOutLinedBtnLight = document.querySelectorAll(".btn-outline-light");
-const playLightBtnItems = [].slice.call(allOutLinedBtnLight);
-let teamAfterLevelOneGroupA = [];
-let teamAfterLevelOneGroupB = [];
-let teamAfterLevelOneGroupC = [];
-let teamAfterLevelOneGroupD = [];
-let teamAfterLevelOneGroupE = [];
-let teamAfterLevelOneGroupF = [];
-
-
-let groupAwinner = "";
-let groupBwinner = "";
-let groupCwinner = "";
-let groupDwinner = "";
-let groupEwinner = "";
-let groupFwinner = "";
-let groupARunnersUp= "";
-let groupBRunnersUp= "";
-let groupCRunnersUp= "";
-let groupDRunnersUp= "";
-let groupERunnersUp= "";
-let groupFRunnersUp= "";
-
-let groupALevelTwoWinner = [];
-let groupBLevelTwoWinner = [];
-let groupCLevelTwoWinner = [];
-let groupDLevelTwoWinner = [];
-let groupELevelTwoWinner = [];
-let groupFLevelTwoWinner = [];
-
-let resultsSideAGroupALevelTwo = [];
-let resultsSideAGroupBLevelTwo = [];
-let resultsSideAGroupCLevelTwo = [];
-let resultsSideBGroupALevelTwo = [];
-let resultsSideBGroupBLevelTwo = [];
-let resultsSideBGroupCLevelTwo = [];
-
-
 function assignRandomWinnerLevelTwo(group) {
   const mapObject = ["winner", "looser"];
   const shuffleResult = shuffle(mapObject);
@@ -857,6 +651,7 @@ resultSideAGroupCLevelOne = [];
 resultSideBGroupALevelOne = [];
 resultSideBGroupBLevelOne = [];
 resultSideBGroupCLevelOne = [];
+
 });
 
 
